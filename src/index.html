@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hello world page</title>
+</head>
+<body>
+  <div id="vue-app">
+    <h1>Hello World!</h1>
+    <div class="test">
+      <vue-test></vue-test>
+      <img src="./common.blocks/test/test.jpg" alt="test" class="test__image">
+      <!-- далее демонстрируется пример для вставки img через ES6 string interpolation в аттрибуты элемента -->
+      <div style="background: gray url('${require('./common.blocks/test/test2.jpg')}'); height: 200px; width: 200px;"></div>
+    </div>
+    <svg class="test-icon">
+      <use xlink:href="#icon-test"></use>
+    </svg>
+    <svg class="test-icon">
+      <use xlink:href="#checked"></use>
+    </svg>
+    <svg class="test-icon">
+      <use xlink:href="#icon-checked"></use>
+    </svg>
+    <a href="/test.html">test.html</a>
+  </div>
+</body>
+</html>
