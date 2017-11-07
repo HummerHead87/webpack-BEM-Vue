@@ -1,3 +1,4 @@
+/* eslint-disable */
 // require("expose-loader?$!expose-loader?jQuery!jquery");
 
 // flexslider

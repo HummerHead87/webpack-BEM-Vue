@@ -18,5 +18,5 @@ npm run dev
 npm run build
 
 # сборка проекта на продакшн с минификацией в директорию public
-npm run build
+npm run production
 ```
