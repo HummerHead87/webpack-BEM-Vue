@@ -116,9 +116,27 @@ module.exports = {
     },
 
     {
+      test: /\.(svg)$/,
+      include: [
+        path.resolve(__dirname, './src/common.blocks'),
+      ],
+      loaders: [{
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'img/',
+        },
+      },
+      'img-loader',
+      ],
+
+    },
+
+    {
       test: /\.(svg|eot|ttf|woff|woff2)$/,
       exclude: [
         path.resolve(__dirname, './src/assets/svg'),
+        path.resolve(__dirname, './src/common.blocks'),
       ],
       loaders: [{
         loader: 'file-loader',
