@@ -4,7 +4,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackErrorNotificationPlugin = require('webpack-error-notification');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
@@ -42,7 +41,11 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     noInfo: isDevelopment,
-    overlay: true,
+    overlay: {
+      warnings: true,
+      errors: true,
+    },
+    quiet: true,
   },
   module: {
     rules: [{
@@ -202,7 +205,6 @@ module.exports = {
     }],
   },
   plugins: [
-    new WebpackErrorNotificationPlugin(/* strategy, options */),
     new CleanWebpackPlugin(['public'], {
       root: __dirname,
       verbose: true,
