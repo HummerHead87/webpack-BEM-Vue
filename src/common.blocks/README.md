@@ -1,4 +1,4 @@
-#common.blocks
+# common.blocks
 
 Здесь хранятся файлы БЭМ блоков:
 common.blocks
