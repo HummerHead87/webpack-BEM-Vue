@@ -6,11 +6,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const PostCssInlineSvg = require('postcss-inline-svg');
+const PostCssSvgo = require('postcss-svgo');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 const autoprefixerConfig = { browsers: ['last 5 versions', 'ie 11'] };
-const postCssConfig = [autoprefixer(autoprefixerConfig)];
+const postCssConfig = [autoprefixer(autoprefixerConfig), PostCssInlineSvg, PostCssSvgo];
 
 const lessOptions = { sourceMap: isDevelopment };
 
