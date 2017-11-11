@@ -8,6 +8,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const PostCssInlineSvg = require('postcss-inline-svg');
 const PostCssSvgo = require('postcss-svgo');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
@@ -15,10 +16,6 @@ const autoprefixerConfig = { browsers: ['last 5 versions', 'ie 11'] };
 const postCssConfig = [autoprefixer(autoprefixerConfig), PostCssInlineSvg, PostCssSvgo];
 
 const lessOptions = { sourceMap: isDevelopment };
-
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
 
 module.exports = {
   entry: {
@@ -40,13 +37,14 @@ module.exports = {
       vue$: 'vue/dist/vue.esm.js',
       'jquery-ui': 'jquery-ui/ui/widgets',
       'jquery-ui-css': 'jquery-ui/../../themes/base',
-      '@': resolve('src'),
+      '@': path.resolve(__dirname, './src'),
     },
+    symlinks: false,
   },
   watch: isDevelopment,
   devtool: isDevelopment ? 'inline-source-map' : false,
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'src/static/'),
     noInfo: isDevelopment,
     overlay: {
       warnings: true,
@@ -225,6 +223,13 @@ module.exports = {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: !isDevelopment,
+    }),
+    new CopyWebpackPlugin([
+      { from: 'src/static' },
+    ], {
+      ignore: [
+        '*.md',
+      ],
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',

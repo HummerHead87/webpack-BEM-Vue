@@ -12,10 +12,10 @@ module.exports = {
   plugins: [
     'html'
   ],
-  'settings': {
+  settings: {
     'import/resolver': {
-      'webpack': {
-        'config': 'webpack.config.js'
+      webpack: {
+        config: 'webpack.config.js'
       }
     }
   },
