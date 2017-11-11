@@ -12,7 +12,7 @@ npm install
 npm run dev
 
 # веб сервер с hot replacement по адресу localhost:8080
-npm run dev
+npm run hotdev
 
 # сборка проекта в директорию public
 npm run build
