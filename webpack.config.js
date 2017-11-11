@@ -16,6 +16,10 @@ const postCssConfig = [autoprefixer(autoprefixerConfig), PostCssInlineSvg, PostC
 
 const lessOptions = { sourceMap: isDevelopment };
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   entry: {
     vendor: ['./src/vendor/index.js'],
@@ -36,6 +40,7 @@ module.exports = {
       vue$: 'vue/dist/vue.esm.js',
       'jquery-ui': 'jquery-ui/ui/widgets',
       'jquery-ui-css': 'jquery-ui/../../themes/base',
+      '@': resolve('src'),
     },
   },
   watch: isDevelopment,
