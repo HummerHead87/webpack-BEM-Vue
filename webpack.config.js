@@ -19,7 +19,7 @@ const lessOptions = { sourceMap: isDevelopment };
 
 module.exports = {
   entry: {
-    vendor: ['./src/vendor/index.js'],
+    // vendor: ['./src/vendor/index.js'],
     common: ['./src/index.js'],
   },
   output: {
@@ -233,15 +233,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      chunksSortMode: 'manual',
-      chunks: ['vendor', 'common'],
+      // chunksSortMode: 'manual',
+      // chunks: ['vendor', 'common'],
     }),
     // для добавления отдельной html страницы нужно подключить новый HtmlWebpackPlugin
     new HtmlWebpackPlugin({
       template: 'src/test.html',
       filename: 'test.html',
-      chunksSortMode: 'manual',
-      chunks: ['vendor', 'common'],
+      // chunksSortMode: 'manual',
+      // chunks: ['vendor', 'common'],
     }),
   ],
 };
