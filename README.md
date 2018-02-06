@@ -21,7 +21,7 @@ npm run build
 npm run production
 ```
 
-Для добавления новой html страницы, например new-page.html в webpack нужно добавить в `plugins` новый инстанс `HtmlWebpackPlugin`:
+Для добавления новой html страницы, например `new-page.html` в `webpack.config.js` нужно добавить в `plugins` новый инстанс `HtmlWebpackPlugin`:
 
 ``` js
 
@@ -32,3 +32,5 @@ new HtmlWebpackPlugin({
 ```
 
 После этого файл `src/new-page.html` будет прогонятся через `webpack` c извлечением всех ресурсов, добавлением в html `common.css`, `common.js`.
+
+В сборщик подключен Postcss с плагинами [autoprifixer](https://github.com/postcss/autoprefixer) и [postcss-inline-svg](https://github.com/TrySound/postcss-inline-svg)
