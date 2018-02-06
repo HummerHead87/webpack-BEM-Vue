@@ -33,6 +33,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-undef': 0,
     // если нужно отключить проблему с CRLF
-    // 'linebreak-style': 0    
+    'linebreak-style': 0
   }
 };

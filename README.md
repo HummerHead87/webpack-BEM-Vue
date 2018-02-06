@@ -34,3 +34,5 @@ new HtmlWebpackPlugin({
 После этого файл `src/new-page.html` будет прогонятся через `webpack` c извлечением всех ресурсов, добавлением в html `common.css`, `common.js`.
 
 В сборщик подключен Postcss с плагинами [autoprifixer](https://github.com/postcss/autoprefixer) и [postcss-inline-svg](https://github.com/TrySound/postcss-inline-svg)
+
+Javascript код проходит строгую проверку eslint перед обработкой. Для отключения линтера нужно добавить комментарий `/* eslint-disable */` перед кодом в котором нужно отключить линтер или напротив конкретной строки `// eslint-disable-line`
