@@ -63,3 +63,6 @@
 
 // normalize.css
 require('normalize.css/normalize.css');
+
+
+import 'bootstrap'
