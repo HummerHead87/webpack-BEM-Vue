@@ -207,7 +207,29 @@ module.exports = {
         }],
         fallback: 'style-loader',
       }),
-    }],
+    },
+
+    {
+      test: /\.scss$/,
+      use: ExtractTextPlugin.extract({
+        use: [{
+          loader: 'css-loader',
+          options: lessOptions,
+        }, {
+          loader: 'sass-loader',
+          options: lessOptions,
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            plugins() {
+              return postCssConfig;
+            },
+          },
+        }],
+        fallback: 'style-loader',
+      }),
+    },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(['public'], {
